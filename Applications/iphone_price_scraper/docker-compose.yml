@@ -1,0 +1,19 @@
+# docker-compose.yml
+version: '3.8'
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: redis_server
+    ports:
+      - "6379:6379"
+    restart: always
+  mongo:
+    image: mongo:6
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    restart: always
+volumes:
+  mongodb_data:
