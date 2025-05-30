@@ -11,13 +11,23 @@ router.post('/register', async (req, res) => {
   try {
     const { username, password } = req.body;
     const hashed = await bcrypt.hash(password, 10);
+
+    // Check if user exists
+    const existing = await User.findOne({ username });
+    if (existing) {
+      existing.password = hashed;
+      await existing.save();
+      return res.json({ message: 'Password updated successfully.' });
+    }
+
     const user = new User({ username, password: hashed });
     await user.save();
     res.json({ message: 'Registration successful. You can now login.' });
   } catch (err) {
-    res.status(500).json({ message: 'Registration failed: ' + err.message });
+    res.status(500).json({ message: 'Internal server error' });
   }
 });
+
 
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
