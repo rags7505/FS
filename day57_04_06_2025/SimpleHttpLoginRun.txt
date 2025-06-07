@@ -1,0 +1,15 @@
+Download jar file from below link:
+
+/*
+ https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/8.0.33/mysql-connector-j-8.0.33.jar
+*/
+
+copy this jar file in the folder, where SimpleHttpLogin.java file is present
+
+change my_sql password on line 77 , with your my_sql password
+
+Run commands:
+
+javac -cp .;mysql-connector-j-8.0.33.jar SimpleHttpLogin.java
+
+java --add-modules jdk.httpserver -cp .;mysql-connector-j-8.0.33.jar SimpleHttpLogin   
