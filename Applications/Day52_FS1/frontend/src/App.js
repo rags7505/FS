@@ -7,7 +7,7 @@ import {
   Toolbar, Box, Container, Alert
 } from '@mui/material';
 
-const API_URL = 'http://192.168.30.140:5000';
+const API_URL = 'http://localhost:5000';
 
 const App = () => {
   const [products, setProducts] = useState([]);
