@@ -1,4 +1,4 @@
-package Event_brite_prev;
+package Other_codes_Drives.Event_brite_prev;
 /* 1. Movie Ratings
 Alexa loves movies and maintains a list of negative and/or positive integer ratings for the movies in her collection. She's getting ready for a film festival and wants to choose some subsequence of movies from her collection to bring such that the following conditions are satisfied:
 
