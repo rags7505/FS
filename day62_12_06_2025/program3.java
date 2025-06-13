@@ -67,7 +67,8 @@ import java.util.*;
 
 class program3 {
     static long count = 0;
-    static long MOD = 1000000000+7;
+    static long MOD = 1000000000 + 7;
+
     private static long factorial(int n) {
         long res = 1;
         for (int i = 2; i <= n; i++) {
@@ -75,11 +76,11 @@ class program3 {
         }
         return res;
     }
-    
+
     private static void check(Set<Integer> rowVisited, Set<Integer> colVisited, Set<Integer> dia1, Set<Integer> dia2,
             int n, int k) {
         if (n == 0) {
-            count=(count+1)%MOD;
+            count = (count + 1) % MOD;
             // System.out.println("rv= " + rowVisited + "  cv= " + colVisited + "  dia1= " + dia1 + "  dia2= " + dia2);
             return;
         }
@@ -88,7 +89,7 @@ class program3 {
                 continue;
             for (int j = 0; j < k; j++) {
                 // System.out.println("i=" + i + " j=" + j + " rv= " + rowVisited + "  cv= " + colVisited + "  dia1= "
-                        // + dia1 + "  dia2= " + dia2);
+                // + dia1 + "  dia2= " + dia2);
                 if (colVisited.contains(j) || dia1.contains(i - j) || dia2.contains(i + j))
                     continue;
                 rowVisited.add(i);
@@ -115,10 +116,10 @@ class program3 {
         Set<Integer> dia2 = new HashSet<>();
         check(rowVisited, colVisited, dia1, dia2, n, k);
 
-        System.out.println(count/factorial(n));
+        System.out.println(count / factorial(n));
     }
 }
-/* Good code(some ones) */
+/* Good code(someones) */
 /*
  * import java.util.*;
 
@@ -207,7 +208,11 @@ class program3{
             l1.add(l.get(i));
             backtrack(l,n,1,l1,b);
         }
-        System.out.println(ans/2);
+        System.out.println(ans/fact(n));
+    }
+    public static int fact(int n){
+        if(n==0 || n==1) return 1;
+        return n*fact(n-1);
     }
     public static void backtrack(List<int[]> l,int n,int cnt,List<int[]> l1,boolean b[]){
         if(cnt==n){
@@ -274,7 +279,11 @@ class program3{
             temp[0][1] = l.get(i)[1];
             backtrack(l, n, 1, b);
         }
-        System.out.println(ans / 2);
+        System.out.println(ans / fact(n));
+    }
+    public static int fact(int n){
+        if(n==0 || n==1) return 1;
+        return n*fact(n-1);
     }
     public static void backtrack(List<int[]> l, int n, int cnt, boolean[] b) {
         if (cnt == n) {
@@ -318,7 +327,7 @@ class program3{
  */
 /* OutOfMemory Worst code part 3(But Better) */
 /*
- * 75/100
+  75/100
 
 import java.util.*;
 class program3 {
