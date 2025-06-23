@@ -37,55 +37,56 @@ Sample Output-2:
 ----------------
 3-6
 */
-/* chatgpt */
+/* Someones code */
 import java.util.*;
-
-public class program1 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String[] releases = sc.nextLine().split(" ");
+public class program1{
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+        String[] str=sc.nextLine().split(" ");
         sc.close();
-
-        String latest = releases[0];
-        for (int i = 1; i < releases.length; i++) {
-            if (compareVersions(releases[i], latest) > 0) {
-                latest = releases[i];
+        String res=str[0];
+        for(int i=0;i<str.length;i++){
+            res=compare(res,str[i]);
+        }
+        String k[]=res.split("-");
+        int j=k.length-1;
+        while(j>=0 && Integer.parseInt(k[j])==0){
+            j--;
+        }
+        StringBuilder sb=new StringBuilder();
+        for(int i=0;i<=j;i++){
+            sb.append(k[i]).append('-');
+        }
+        String p=sb.substring(0,sb.length()-1);
+        boolean f=false;
+        for(String i:str){
+            if(i.equals(p)){
+                System.out.println(i);
+                f=true;
+                break;
             }
         }
-
-        // Remove any unnecessary trailing zeros
-        System.out.println(trimTrailingZeros(latest));
+        if(!f){
+            System.out.println(res);
+        }
     }
-
-    // Compare two versions: returns positive if v1 > v2, negative if v1 < v2, 0 if equal
-    static int compareVersions(String v1, String v2) {
-        String[] parts1 = v1.split("-");
-        String[] parts2 = v2.split("-");
-        int maxLen = Math.max(parts1.length, parts2.length);
-
-        for (int i = 0; i < maxLen; i++) {
-            int num1 = i < parts1.length ? Integer.parseInt(parts1[i]) : 0;
-            int num2 = i < parts2.length ? Integer.parseInt(parts2[i]) : 0;
-
-            if (num1 != num2) {
-                return num1 - num2;
+    public static String compare(String str1,String str2){
+        String[] s1=str1.split("-");
+        String[] s2=str2.split("-");
+        int a=0;
+        int b=0;
+        while(a<s1.length || b<s2.length){
+            int x1=(a<s1.length)?Integer.parseInt(s1[a]):0;
+            int x2=(b<s2.length)?Integer.parseInt(s2[b]):0;
+            if(x1>x2){
+                return str1;
+            }else if(x1<x2){
+                return str2;
+            }else{
+                a++;
+                b++;
             }
         }
-        return 0; // equal
-    }
-
-    // Remove trailing zeros from version representation
-    static String trimTrailingZeros(String version) {
-        String[] parts = version.split("-");
-        int end = parts.length - 1;
-        while (end > 0 && parts[end].equals("0")) {
-            end--;
-        }
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i <= end; i++) {
-            if (i > 0) sb.append("-");
-            sb.append(parts[i]);
-        }
-        return sb.toString();
+        return str1;
     }
 }
