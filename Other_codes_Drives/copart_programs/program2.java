@@ -175,7 +175,7 @@ class program1{
 
 import java.util.*;
 
-class program2 {
+public class program2 {
 
   // Function to compute the LCS DP table
   private static int[][] computeLCS(String s1, String s2) {

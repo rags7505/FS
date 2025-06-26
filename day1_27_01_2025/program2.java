@@ -65,7 +65,7 @@ One way to achieve 5 consecutive blue tiles is to repaint the 4th and 9th tiles 
 This requires 2 operations.
 */
 import java.util.*;
-class program2{
+public class program2{
     public static void main (String[] args) {
         Scanner sc=new Scanner(System.in);
         String s=sc.next();

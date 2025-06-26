@@ -42,7 +42,7 @@ Sample Output-2:
 [3, 2, 1]
 */
 import java.util.*;
-class program2 {
+public class program2 {
   public static void main(String[] args){
     Scanner sc=new Scanner(System.in);
     String s[]=sc.nextLine().split(" ");

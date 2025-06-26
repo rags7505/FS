@@ -63,7 +63,7 @@ and the nodes between Levels 2 and 3 are 2, 3, 4, 5, 6, 7.
 
  */
 import java.util.*;
-class program3{
+public class program3{
     static int posIndex;
 
     public static void main(String[] args) {

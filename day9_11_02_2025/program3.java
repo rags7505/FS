@@ -43,7 +43,7 @@ space separated integers, military-camp IDs.
 
 Output Format:
 --------------
-Print all the military-camp IDs, which are at the edge of S.H.I.E.L.D.
+Print all the military-camp IDs, which are at the edge of the S.H.I.E.L.D.
 
 
 Sample Input-1:
@@ -116,7 +116,7 @@ input =1 2 -1 3 -1 4 -1 5 6 -1 7 8 -1 -1 9 10 11
 output =[1, 2, 3, 4, 5, 7, 9, 10, 11]
  */
 import java.util.*;
-class program3 {
+public class program3 {
     public static void main(String[] args){
         Scanner sc=new Scanner(System.in);
         String s[]=sc.nextLine().split(" ");

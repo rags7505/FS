@@ -40,7 +40,7 @@ Sample Output-2:
 */
 import java.util.*;
 
-class program1 {
+public class program1 {
   public static void main(String[] args){
     Scanner sc=new Scanner(System.in);
     String s[]=sc.nextLine().split(" ");

@@ -102,11 +102,10 @@ public class program2 {
 
         return false;
     }
-}
  */
 /* My code, small changes by chatgpt */
 import java.util.*;
-class program2{
+public class program2{
     static int n=0;
     static List<String> ans=new ArrayList<>();
     public static void main (String[] args) {

@@ -126,7 +126,7 @@ public class program1{
 /* With 1D array */
 import java.util.*;
 
-class program6 {
+public class program6 {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int n = sc.nextInt();

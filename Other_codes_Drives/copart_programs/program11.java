@@ -87,7 +87,7 @@ There is no way in which a committee which satisfies the given conditions can be
 /* Tejas code (THE BEST CODE) (similar to n-queens)*/
 import java.util.*;
 
-class program3 {
+public class program11 {
     static long count = 0;
     static long MOD = 1000000000+7;
     private static long factorial(int n) {
@@ -208,7 +208,7 @@ public class Main{
 /* OutOfMemory Worst code part 1 */
 /*
  * import java.util.*;
-class program3{
+class test{
     static int ans=0;
     static int mod=(int)Math.pow(10,9)+7;
     public static void main (String[] args) {
@@ -272,7 +272,7 @@ class program3{
 /* OutOfMemory Worst code part 2 */
 /*
  * import java.util.*;
-class program3{
+class test{
     static int ans=0;
     static int mod=(int)Math.pow(10,9)+7;
     static int[][] temp;
@@ -340,10 +340,10 @@ class program3{
  */
 /* OutOfMemory Worst code part 3(But Better) */
 /*
- * 75/100
+  75/100
 
 import java.util.*;
-class program3 {
+class test {
     static int ans = 0;
     static int mod = (int)Math.pow(10, 9) + 7;
 

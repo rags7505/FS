@@ -45,7 +45,7 @@ inexample 2 adaada when rotated 3 times gives back "adaada". Hence answer is 1
 
  */
 import java.util.*;
-class program8{
+public class program8{
     public static void main (String[] args) {
         Scanner sc=new Scanner(System.in);
         String s[]=sc.nextLine().split(" ");
