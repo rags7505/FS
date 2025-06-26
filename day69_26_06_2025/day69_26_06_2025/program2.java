@@ -1,4 +1,5 @@
 package day69_26_06_2025;
+
 /*
  BCCI wants to select the group of bowlers for an upcoming test-series, 
 you want to choose the group with highest number of wickets, which is 
@@ -80,8 +81,10 @@ public class program2 {
         int[] wickets = new int[n];
         int[] ages = new int[n];
 
-        for (int i = 0; i < n; i++) wickets[i] = sc.nextInt();
-        for (int i = 0; i < n; i++) ages[i] = sc.nextInt();
+        for (int i = 0; i < n; i++)
+            wickets[i] = sc.nextInt();
+        for (int i = 0; i < n; i++)
+            ages[i] = sc.nextInt();
         sc.close();
         // Pair (age, wickets)
         int[][] bowlers = new int[n][2];
@@ -92,7 +95,8 @@ public class program2 {
 
         // Sort by age asc, if age same then by wickets asc
         Arrays.sort(bowlers, (a, b) -> {
-            if (a[0] == b[0]) return a[1] - b[1];
+            if (a[0] == b[0])
+                return a[1] - b[1];
             return a[0] - b[0];
         });
 
@@ -112,4 +116,46 @@ public class program2 {
         System.out.println(max);
     }
 }
+/* Someones code */
+/*
+ import java.util.*;
 
+public class program2 {
+    static int max = 0;
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] wickets = new int[n];
+        int[] ages = new int[n];
+
+        for (int i = 0; i < n; i++) wickets[i] = sc.nextInt();
+        for (int i = 0; i < n; i++) ages[i] = sc.nextInt();
+        sc.close();
+        // Pair (age, wickets)
+        int[][] bowlers = new int[n][2];
+        for (int i = 0; i < n; i++) {
+            bowlers[i][0] = ages[i];
+            bowlers[i][1] = wickets[i];
+        }
+
+        // Sort by age asc, if age same then by wickets asc
+        Arrays.sort(bowlers, (a, b) -> {
+            if (a[0] == b[0]) return a[1] - b[1];
+            return a[0] - b[0];
+        });
+
+        backtrack(bowlers,0,-1,0);
+
+        System.out.println(max);
+    }
+public static void backtrack(int[][] bowlers, int idx, int prev, int sum) {
+    if (idx == bowlers.length) {
+        max = Math.max(max, sum);
+        return;
+    }
+    if (prev == -1 || bowlers[idx][1] >= bowlers[prev][1]) {
+        backtrack(bowlers, idx + 1, idx, sum + bowlers[idx][1]);
+    }
+    backtrack(bowlers, idx + 1, prev, sum);
+}
+ */
