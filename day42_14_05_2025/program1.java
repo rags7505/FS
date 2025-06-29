@@ -187,3 +187,200 @@ class program1{
         return j==s2.length();
     }
 }
+/* claude response */
+/*
+ package day42_14_05_2025;
+
+import java.util.*;
+
+// Your approach corrected - Linear Search
+class LinearSearchSolution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] s = sc.nextLine().split(" ");
+        String org = s[0];
+        String sub = s[1];
+        int r = sc.nextInt();
+        int[] indices = new int[r];
+        for (int i = 0; i < r; i++) {
+            indices[i] = sc.nextInt();
+        }
+        sc.close();
+        
+        int ans = 0;
+        boolean[] deleted = new boolean[org.length()];
+        
+        for (int i = 0; i < r; i++) {
+            // Temporarily mark this position as deleted
+            deleted[indices[i]] = true;
+            
+            // Check if subsequence still exists
+            if (isSubsequence(org, sub, deleted)) {
+                ans++; // We can delete this many characters
+            } else {
+                // Can't delete more, so revert and break
+                deleted[indices[i]] = false;
+                break;
+            }
+        }
+        
+        System.out.println(ans);
+    }
+    
+    public static boolean isSubsequence(String org, String sub, boolean[] deleted) {
+        int i = 0, j = 0;
+        while (i < org.length() && j < sub.length()) {
+            if (!deleted[i] && org.charAt(i) == sub.charAt(j)) {
+                j++;
+            }
+            i++;
+        }
+        return j == sub.length();
+    }
+}
+
+// Optimal Solution - Binary Search
+class BinarySearchSolution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] s = sc.nextLine().split(" ");
+        String org = s[0];
+        String sub = s[1];
+        int r = sc.nextInt();
+        int[] indices = new int[r];
+        for (int i = 0; i < r; i++) {
+            indices[i] = sc.nextInt();
+        }
+        sc.close();
+        
+        System.out.println(maxDeletions(org, sub, indices));
+    }
+    
+    public static int maxDeletions(String org, String sub, int[] indices) {
+        int left = 0, right = indices.length;
+        int ans = 0;
+        
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            
+            // Mark first 'mid' deletions
+            boolean[] deleted = new boolean[org.length()];
+            for (int i = 0; i < mid; i++) {
+                deleted[indices[i]] = true;
+            }
+            
+            if (isSubsequence(org, sub, deleted)) {
+                ans = mid;
+                left = mid + 1; // Try to delete more
+            } else {
+                right = mid - 1; // Delete fewer
+            }
+        }
+        
+        return ans;
+    }
+    
+    public static boolean isSubsequence(String org, String sub, boolean[] deleted) {
+        int i = 0, j = 0;
+        while (i < org.length() && j < sub.length()) {
+            if (!deleted[i] && org.charAt(i) == sub.charAt(j)) {
+                j++;
+            }
+            i++;
+        }
+        return j == sub.length();
+    }
+}
+
+// Most Efficient - Greedy with early termination
+class GreedySolution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] s = sc.nextLine().split(" ");
+        String org = s[0];
+        String sub = s[1];
+        int r = sc.nextInt();
+        int[] indices = new int[r];
+        for (int i = 0; i < r; i++) {
+            indices[i] = sc.nextInt();
+        }
+        sc.close();
+        
+        System.out.println(maxDeletionsGreedy(org, sub, indices));
+    }
+    
+    public static int maxDeletionsGreedy(String org, String sub, int[] indices) {
+        boolean[] deleted = new boolean[org.length()];
+        
+        for (int i = 0; i < indices.length; i++) {
+            // Temporarily delete this character
+            deleted[indices[i]] = true;
+            
+            // Check if subsequence still exists
+            if (!canFormSubsequence(org, sub, deleted)) {
+                // If we can't form subsequence, we can delete at most i characters
+                return i;
+            }
+        }
+        
+        // We can delete all characters and still maintain subsequence
+        return indices.length;
+    }
+    
+    private static boolean canFormSubsequence(String org, String sub, boolean[] deleted) {
+        int j = 0; // pointer for sub
+        
+        for (int i = 0; i < org.length() && j < sub.length(); i++) {
+            if (!deleted[i] && org.charAt(i) == sub.charAt(j)) {
+                j++;
+            }
+        }
+        
+        return j == sub.length();
+    }
+}
+
+// Alternative: Using Set for deleted indices (cleaner but slightly less efficient)
+class SetBasedSolution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String[] s = sc.nextLine().split(" ");
+        String org = s[0];
+        String sub = s[1];
+        int r = sc.nextInt();
+        int[] indices = new int[r];
+        for (int i = 0; i < r; i++) {
+            indices[i] = sc.nextInt();
+        }
+        sc.close();
+        
+        System.out.println(maxDeletionsWithSet(org, sub, indices));
+    }
+    
+    public static int maxDeletionsWithSet(String org, String sub, int[] indices) {
+        Set<Integer> deletedIndices = new HashSet<>();
+        
+        for (int i = 0; i < indices.length; i++) {
+            deletedIndices.add(indices[i]);
+            
+            if (!isSubsequenceWithSet(org, sub, deletedIndices)) {
+                return i; // Can delete at most i characters
+            }
+        }
+        
+        return indices.length;
+    }
+    
+    private static boolean isSubsequenceWithSet(String org, String sub, Set<Integer> deleted) {
+        int j = 0;
+        
+        for (int i = 0; i < org.length() && j < sub.length(); i++) {
+            if (!deleted.contains(i) && org.charAt(i) == sub.charAt(j)) {
+                j++;
+            }
+        }
+        
+        return j == sub.length();
+    }
+}
+ */

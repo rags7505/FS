@@ -109,3 +109,63 @@ public class program1 {
         System.out.println(minSwapsToSort(P, Q));
     }
 }
+/* claude */
+/*
+ import java.util.*;
+
+public class CandleSwap {
+    
+    public static int minSwapsToSort(int[] P, int[] Q) {
+        int n = P.length;
+        
+        // dp[i][0] = min swaps to sort first i+1 elements without swapping at position i
+        // dp[i][1] = min swaps to sort first i+1 elements with swapping at position i
+        int[][] dp = new int[n][2];
+        
+        // Initialize first position
+        dp[0][0] = 0;  // No swap at position 0
+        dp[0][1] = 1;  // Swap at position 0
+        
+        for (int i = 1; i < n; i++) {
+            // Initialize with large values
+            dp[i][0] = Integer.MAX_VALUE;
+            dp[i][1] = Integer.MAX_VALUE;
+            
+            // Case 1: Both arrays are naturally sorted at position i
+            // P[i] > P[i-1] and Q[i] > Q[i-1]
+            if (P[i] > P[i-1] && Q[i] > Q[i-1]) {
+                dp[i][0] = Math.min(dp[i][0], dp[i-1][0]);     // Don't swap at i, didn't swap at i-1
+                dp[i][1] = Math.min(dp[i][1], dp[i-1][1] + 1); // Swap at i, swapped at i-1
+            }
+            
+            // Case 2: Arrays are sorted if we swap at position i
+            // P[i] > Q[i-1] and Q[i] > P[i-1]
+            if (P[i] > Q[i-1] && Q[i] > P[i-1]) {
+                dp[i][0] = Math.min(dp[i][0], dp[i-1][1]);     // Don't swap at i, swapped at i-1
+                dp[i][1] = Math.min(dp[i][1], dp[i-1][0] + 1); // Swap at i, didn't swap at i-1
+            }
+        }
+        
+        return Math.min(dp[n-1][0], dp[n-1][1]);
+    }
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        int n = sc.nextInt();
+        int[] P = new int[n];
+        int[] Q = new int[n];
+        
+        for (int i = 0; i < n; i++) {
+            P[i] = sc.nextInt();
+        }
+        
+        for (int i = 0; i < n; i++) {
+            Q[i] = sc.nextInt();
+        }
+        
+        System.out.println(minSwapsToSort(P, Q));
+        sc.close();
+    }
+}
+ */

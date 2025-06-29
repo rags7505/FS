@@ -172,3 +172,142 @@ class program2 {
             return true;
         }
     }
+/* claude other responses */
+/*
+package day42_14_05_2025;
+
+import java.util.*;
+
+
+ * Word-Corrector Application
+ * 
+ * This application implements a spell checker that validates user words against a dictionary
+ * using three levels of matching:
+ * 1. Exact match (case-sensitive)
+ * 2. Case-insensitive match
+ * 3. Vowel replacement match (vowels can be substituted)
+ 
+class WordCorrector {
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        // Read dictionary and user words
+        String[] dictionary = sc.nextLine().split(",");
+        String[] userWords = sc.nextLine().split(",");
+        sc.close();
+        
+        // Process each user word
+        List<String> results = new ArrayList<>();
+        for (String userWord : userWords) {
+            String correctedWord = correctWord(dictionary, userWord);
+            results.add(correctedWord);
+        }
+        
+        // Output results
+        System.out.println(results);
+    }
+    
+
+      Corrects a user word based on dictionary matches
+     Follows precedence: exact match -> case-insensitive -> vowel replacement
+     
+    private static String correctWord(String[] dictionary, String userWord) {
+        // Level 1: Check for exact match (case-sensitive)
+        for (String dictWord : dictionary) {
+            if (dictWord.equals(userWord)) {
+                return dictWord;
+            }
+        }
+        
+        // Level 2: Check for case-insensitive match
+        for (String dictWord : dictionary) {
+            if (dictWord.equalsIgnoreCase(userWord)) {
+                return dictWord;
+            }
+        }
+        
+        // Level 3: Check for vowel replacement match
+        for (String dictWord : dictionary) {
+            if (isVowelReplacementMatch(dictWord, userWord)) {
+                return dictWord;
+            }
+        }
+        
+        // No match found
+        return "";
+    }
+    
+    // 
+    //   Checks if two words match when vowels can be replaced with any other vowel
+    //   Words must be same length and non-vowel characters must match exactly (case-insensitive)
+    //  
+    private static boolean isVowelReplacementMatch(String dictWord, String userWord) {
+        // Words must be same length
+        if (dictWord.length() != userWord.length()) {
+            return false;
+        }
+        
+        // Check each character position
+        for (int i = 0; i < dictWord.length(); i++) {
+            char dictChar = dictWord.charAt(i);
+            char userChar = userWord.charAt(i);
+            
+            // If characters match (case-insensitive), continue
+            if (Character.toLowerCase(dictChar) == Character.toLowerCase(userChar)) {
+                continue;
+            }
+            
+            // If both are vowels, they can be substituted
+            if (isVowel(dictChar) && isVowel(userChar)) {
+                continue;
+            }
+            
+            // Characters don't match and can't be substituted
+            return false;
+        }
+        
+        return true;
+    }
+    
+
+    //   Checks if a character is a vowel (case-insensitive)
+    
+    private static boolean isVowel(char c) {
+        return "aeiouAEIOU".indexOf(c) != -1;
+    }
+}
+
+Test Cases:
+
+Sample Input-1:
+LiTe,lite,bare,Bare
+lite,Lite,LiTe,Bare,BARE,Bear,bear,leti,leet,leto
+
+Expected Output-1:
+[lite, LiTe, LiTe, Bare, bare, , , LiTe, , LiTe]
+
+Explanation:
+- "lite" -> exact match with "lite"
+- "Lite" -> case-insensitive match, returns first match "LiTe"
+- "LiTe" -> exact match with "LiTe"
+- "Bare" -> exact match with "Bare"
+- "BARE" -> case-insensitive match with "bare"
+- "Bear" -> no match (consonants don't match)
+- "bear" -> no match (consonants don't match)
+- "leti" -> vowel replacement match with "LiTe" (e->i, i->e)
+- "leet" -> no match (wrong length or pattern)
+- "leto" -> vowel replacement match with "LiTe" (e->i, o->e)
+
+Sample Input-2:
+kmit,ngit,kmec
+KmOT,NHIT,KMIC
+
+Expected Output-2:
+[kmit, , kmec]
+
+Explanation:
+- "KmOT" -> vowel replacement match with "kmit" (O->i)
+- "NHIT" -> no match (consonants don't match)
+- "KMIC" -> vowel replacement match with "kmec" (I->e)
+*/

@@ -69,7 +69,7 @@ public class program1{
         }
     }
 }
-/* Same but different code */
+/* Srihitha code */
 /*
  import java.util.*;
 public class program1{

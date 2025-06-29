@@ -69,3 +69,127 @@ class program2{
         System.out.println(ans);
     }
 }
+/* Claude other responses */
+/*
+// Alternative 1: Using Collections and enhanced for loop
+class CollectionsSolution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int d = sc.nextInt();
+        
+        List<Integer> prices = new ArrayList<>();
+        for(int i = 0; i < n; i++) {
+            prices.add(sc.nextInt());
+        }
+        sc.close();
+        
+        Collections.sort(prices);
+        
+        int count = 0;
+        for(int price : prices) {
+            if(price <= d) {
+                d -= price;
+                count++;
+            } else {
+                break;
+            }
+        }
+        
+        System.out.println(count);
+    }
+}
+
+// Alternative 2: Using streams (Java 8+)
+class StreamSolution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int d = sc.nextInt();
+        
+        int[] prices = new int[n];
+        for(int i = 0; i < n; i++) {
+            prices[i] = sc.nextInt();
+        }
+        sc.close();
+        
+        Arrays.sort(prices);
+        
+        int[] budget = {d}; // Using array to make it effectively final
+        int[] count = {0};
+        
+        Arrays.stream(prices)
+              .takeWhile(price -> price <= budget[0])
+              .forEach(price -> {
+                  budget[0] -= price;
+                  count[0]++;
+              });
+        
+        System.out.println(count[0]);
+    }
+}
+
+// Alternative 3: More readable version with better variable names
+class ReadableSolution {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int numberOfRainCoats = scanner.nextInt();
+        int budget = scanner.nextInt();
+        
+        int[] prices = new int[numberOfRainCoats];
+        for(int i = 0; i < numberOfRainCoats; i++) {
+            prices[i] = scanner.nextInt();
+        }
+        scanner.close();
+        
+        // Sort prices in ascending order to buy cheapest first
+        Arrays.sort(prices);
+        
+        int rainCoatsPurchased = 0;
+        int remainingBudget = budget;
+        
+        for(int price : prices) {
+            if(price <= remainingBudget) {
+                remainingBudget -= price;
+                rainCoatsPurchased++;
+            } else {
+                break; // Can't afford any more rain coats
+            }
+        }
+        
+        System.out.println(rainCoatsPurchased);
+    }
+}
+
+// Alternative 4: Using counting sort (if prices are small)
+class CountingSortSolution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int d = sc.nextInt();
+        
+        // Assuming prices are reasonable (< 10000)
+        int[] count = new int[10001];
+        int maxPrice = 0;
+        
+        for(int i = 0; i < n; i++) {
+            int price = sc.nextInt();
+            count[price]++;
+            maxPrice = Math.max(maxPrice, price);
+        }
+        sc.close();
+        
+        int rainCoats = 0;
+        
+        for(int price = 1; price <= maxPrice && price <= d; price++) {
+            while(count[price] > 0 && price <= d) {
+                d -= price;
+                rainCoats++;
+                count[price]--;
+            }
+        }
+        
+        System.out.println(rainCoats);
+    }
+}
+ */
