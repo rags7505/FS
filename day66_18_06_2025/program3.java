@@ -1,4 +1,4 @@
-package day65_18_06_2025;
+package day66_18_06_2025;
 /*
 Ravi is playing with strings.Given Three alphabets [a,b,c] , ravi has to 
 make strings such that no two adjacents alphabets are same.

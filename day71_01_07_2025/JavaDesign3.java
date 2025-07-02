@@ -1,4 +1,4 @@
-package day70_01_07_2025;
+package day71_01_07_2025;
 /*
 You are building an E-Commerce Product Insights Engine for a marketplace like 
 Amazon or Flipkart. The platform stores information about various products, 

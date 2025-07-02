@@ -1,4 +1,4 @@
-package day66_23_06_2025;
+package day67_23_06_2025;
 /*
 There is a crowd attended for a political meeting with different groups and each
 group had unique colored dresses wearing.We asked n people in the crowd that

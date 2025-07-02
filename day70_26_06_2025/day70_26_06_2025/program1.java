@@ -1,4 +1,4 @@
-package day69_26_06_2025;
+package day70_26_06_2025;
 /*
  Basava is interested in playing with digits.
 He wants to create a set of integers of length N, using the digits[0-9].

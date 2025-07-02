@@ -1,4 +1,4 @@
-package day65_18_06_2025;
+package day66_18_06_2025;
 /*
 You are developing a Credit Risk Assessment System for a financial institution. 
 The system evaluates customer creditworthiness based on income, debt, and missed 

@@ -1,4 +1,4 @@
-package day70_01_07_2025;
+package day71_01_07_2025;
 /*
 A merchant has two types of idols, gold and silver.
 He has arranged the idols in the form of m*n grid, 

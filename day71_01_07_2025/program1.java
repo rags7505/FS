@@ -1,4 +1,4 @@
-package day70_01_07_2025;
+package day71_01_07_2025;
 /*
 Naresh is working on expression of words.
 If you give him an expression like, [p,q,r]s[t,u],

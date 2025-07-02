@@ -1,4 +1,4 @@
-package day69_26_06_2025;
+package day70_26_06_2025;
 
 /*
  BCCI wants to select the group of bowlers for an upcoming test-series, 

@@ -1,4 +1,4 @@
-package day66_23_06_2025;
+package day67_23_06_2025;
 /*
 Mr Rajendra Tapadia is given a number N as string to Mr Satyam, and ask him 
 to find the number of ways to make that number N equal to zero by using 

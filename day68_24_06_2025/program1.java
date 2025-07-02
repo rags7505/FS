@@ -1,4 +1,4 @@
-package day67_24_06_2025;
+package day68_24_06_2025;
 /*
 Gunith is interested in series and sequence problems in Maths.
 Gunith is given an array A of integers, he wants to find out 

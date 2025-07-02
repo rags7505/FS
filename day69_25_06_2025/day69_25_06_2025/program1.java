@@ -1,4 +1,4 @@
-package day68_25_06_2025;
+package day69_25_06_2025;
 /*
 For Siddarth's Birthday his friends planned cake cutting. On top of the cake
 there are two lines of candles, all the candles with different heights. The lines 

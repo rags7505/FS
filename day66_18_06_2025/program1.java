@@ -1,4 +1,4 @@
-package day65_18_06_2025;
+package day66_18_06_2025;
 /*
 Gopal would like to go on Tour, and planned a schedule.
 Airport authority has created a new way of issuing tickets.

@@ -1,4 +1,4 @@
-package day68_25_06_2025;
+package day69_25_06_2025;
 /*
 Bunny is playing with binary strings. He wants to break
 a binary string B into 3 parts, of length atleast '1',
