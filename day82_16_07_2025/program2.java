@@ -61,37 +61,101 @@ Sample Output-2:
 6
 */
 
-/*Others */
+/*Others 1 */
 import java.util.*;
-class program2{
-    public static void main (String[] args) {
-        Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt();
-        int m=sc.nextInt();
-        int []degree=new int[n];
-        Set<String> direct=new HashSet<>();
-        int a[][]=new int[m][2];
-        for(int i=0;i<m;i++){
-            a[i][0]=sc.nextInt();
-            a[i][1]=sc.nextInt();
+public class program2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int[] degree = new int[n];
+        Set<String> direct = new HashSet<>();
+        int a[][] = new int[m][2];
+        for (int i = 0; i < m; i++) {
+            a[i][0] = sc.nextInt();
+            a[i][1] = sc.nextInt();
             degree[a[i][0]]++;
             degree[a[i][1]]++;
-            direct.add(a[i][0]+" "+a[i][1]);
+            direct.add(a[i][0] + " " + a[i][1]);
         }
         sc.close();
-        int ans=0;
-        for(int i=0;i<n;i++){
-            for(int j=i+1;j<n;j++){
-                int linked=degree[i]+degree[j];
-                if(direct.contains(i+" "+j) || direct.contains(j+" "+i)){
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                int linked = degree[i] + degree[j];
+                if (direct.contains(i + " " + j) || direct.contains(j + " " + i)) {
                     linked--;
                 }
-                ans=Math.max(ans,linked);
+                ans = Math.max(ans, linked);
             }
         }
         System.out.println(ans);
     }
 }
+/*Others 2 */
+/*
+import java.util.*;
+class program2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int m = sc.nextInt();
+        int n = sc.nextInt();
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+        for (int i = 0; i < m; i++) {
+            adj.add(new ArrayList<>());
+        }
+        for (int i = 0; i < n; i++) {
+            int start = sc.nextInt();
+            int end = sc.nextInt();
+            adj.get(start).add(end);
+            adj.get(end).add(start);
+        }
+        sc.close();
+        int maxReachabilityScore = 0;
+        for (int i = 0; i < m; i++) {
+            for (int j = i + 1; j < m; j++) {
+                int score = adj.get(i).size() + adj.get(j).size();
+                if (adj.get(i).contains(j) || adj.get(j).contains(i)) {
+                    score--;
+                }
+                maxReachabilityScore = Math.max(maxReachabilityScore, score);
+            }
+        }
+        System.out.println(maxReachabilityScore);
+    }
+}  */
+/*other 3 */
+/*
+import java.util.*;
+class program2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int r = sc.nextInt();
+        int aa[] = new int[n];
+        boolean b[][] = new boolean[n][n];
+        for (int i = 0; i < r; i++) {
+            int u = sc.nextInt();
+            int v = sc.nextInt();
+            aa[u]++;
+            aa[v]++;
+            b[u][v] = true;
+            b[v][u] = true;
+        }
+        sc.close();
+        int max = 0;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = i + 1; j < n; j++) {
+                int c = aa[i] + aa[j];
+                if (b[i][j]) {
+                    c--;
+                }
+                max = Math.max(max, c);
+            }
+        }
+        System.out.println(max);
+    }
+}*/
 /* chatgpt */
 /*
 import java.util.*;
