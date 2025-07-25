@@ -68,3 +68,67 @@ public class program3{
         System.out.println(max);
     }
 }
+/* chatgpt */
+/*
+import java.util.*;
+
+public class MaxXORValue {
+    static class TrieNode {
+        TrieNode[] child = new TrieNode[2]; // 0 and 1
+    }
+
+    // Insert number into the trie
+    private static void insert(TrieNode root, int num) {
+        TrieNode node = root;
+        for (int i = 31; i >= 0; i--) {
+            int bit = (num >> i) & 1;
+            if (node.child[bit] == null) {
+                node.child[bit] = new TrieNode();
+            }
+            node = node.child[bit];
+        }
+    }
+
+    // Find max XOR of num with elements in trie
+    private static int findMaxXOR(TrieNode root, int num) {
+        TrieNode node = root;
+        int maxXOR = 0;
+        for (int i = 31; i >= 0; i--) {
+            int bit = (num >> i) & 1;
+            int toggledBit = 1 - bit;
+            if (node.child[toggledBit] != null) {
+                maxXOR |= (1 << i);
+                node = node.child[toggledBit];
+            } else {
+                node = node.child[bit];
+            }
+        }
+        return maxXOR;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Input
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        TrieNode root = new TrieNode();
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+            insert(root, arr[i]);  // Insert each number into the Trie
+        }
+
+        int maxResult = 0;
+
+        // Find max XOR for each number
+        for (int i = 0; i < n; i++) {
+            maxResult = Math.max(maxResult, findMaxXOR(root, arr[i]));
+        }
+
+        // Output
+        System.out.println(maxResult);
+    }
+}
+
+*/
