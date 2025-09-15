@@ -74,7 +74,7 @@ class program1 {
       int one = 0, two = 0;
       if (i != prevColor) {
         one = check(index - 1, k, i);
-        two = check(index - 1, k, i);
+        two = check(index - 2, k, i);
       }
       comb += one + two;
     }
@@ -106,7 +106,7 @@ class program1 {
       int one = 0, two = 0;
       if (i != prevColor) {
         one = check(index - 1, k, i);
-        two = check(index - 1, k, i);
+        two = check(index - 2, k, i);
       }
       comb += one + two;
     }
